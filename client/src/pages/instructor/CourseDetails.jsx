@@ -1,17 +1,24 @@
 import React, { useEffect, useState } from "react";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { useParams, Link } from "react-router-dom";
 =======
 import { useParams, Link, useNavigate } from "react-router-dom";
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+import { useParams, Link } from "react-router-dom";
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
 import axios from "axios";
 
 const CourseDetails = () => {
   const { id } = useParams();
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   const navigate = useNavigate();
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
   const [course, setCourse] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -54,6 +61,7 @@ const CourseDetails = () => {
           }}
         />
 <<<<<<< HEAD
+<<<<<<< HEAD
         <div className="absolute inset-0 bg-blue-900/60 backdrop-blur-sm flex items-center justify-center">
 =======
         <div className="absolute inset-0 bg-blue-900/60 backdrop-blur-sm flex flex-col items-center justify-center px-4">
@@ -66,6 +74,9 @@ const CourseDetails = () => {
           </button>
 
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+        <div className="absolute inset-0 bg-blue-900/60 backdrop-blur-sm flex items-center justify-center">
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
           <h1 className="text-white text-4xl md:text-5xl font-bold text-center drop-shadow-xl">
             {course.title}
           </h1>

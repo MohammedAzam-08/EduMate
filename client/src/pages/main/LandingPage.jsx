@@ -2,13 +2,17 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import { motion } from "framer-motion";
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
 import { Button } from "../../components/ui/button.jsx";
 import { Card, CardContent } from "../../components/ui/card.jsx";
 import { Input } from "../../components/ui/input.jsx";
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 const fadeInUp = {
@@ -64,6 +68,8 @@ const bounceIn = {
 };
 
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
 export default function LandingPage() {
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -74,9 +80,12 @@ export default function LandingPage() {
       .get("http://localhost:5000/api/courses/available")
       .then((res) => {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         console.log("Courses fetched:", res.data);  // Added for debugging image URLs
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
         setCourses(res.data);
         setLoading(false);
       })
@@ -91,6 +100,9 @@ export default function LandingPage() {
   );
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
   return (
     <div className="min-h-screen bg-gradient-to-b from-cyan-100 to-white">
       {/* Navbar */}
@@ -102,6 +114,7 @@ export default function LandingPage() {
         <div className="flex items-center space-x-6">
           <Link to="/sign-in">
             <Button variant="outline" className="px-6 py-2 text-sm">
+<<<<<<< HEAD
 =======
   const testimonials = [
     {
@@ -153,11 +166,16 @@ export default function LandingPage() {
           <Link to="/sign-in">
             <Button variant="outline" className="px-6 py-2 text-sm rounded-full border-2 border-gray-400 hover:border-blue-500 transition duration-300">
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
               Log in
             </Button>
           </Link>
           <Link to="/sign-up">
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
             <Button className="bg-gray-800 hover:bg-gray-900 text-white px-6 py-2 text-sm">
               Join for free
             </Button>
@@ -182,6 +200,7 @@ export default function LandingPage() {
 
         {/* Search */}
         <div className="flex justify-center gap-2 max-w-md mx-auto">
+<<<<<<< HEAD
 =======
             <Button className="bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700 text-white px-6 py-2 text-sm rounded-full shadow-xl">
               Join for free
@@ -211,11 +230,16 @@ export default function LandingPage() {
           custom={3}
         >
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
           <Input
             placeholder="Search for courses"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
             className="rounded-full px-5"
           />
           <Button className="bg-blue-600 hover:bg-blue-700 rounded-full px-6">
@@ -253,6 +277,7 @@ export default function LandingPage() {
                 </p>
               </CardContent>
             </Card>
+<<<<<<< HEAD
 =======
             className="rounded-full px-6 py-4 border-2 border-blue-400 shadow-xl w-full"
           />
@@ -293,11 +318,16 @@ export default function LandingPage() {
               </CardContent>
             </motion.div>
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
           ))
         )}
       </section>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
       {/* Show All Button */}
       <div className="flex justify-center mb-12">
         <Link to="/student/available-courses">
@@ -335,6 +365,7 @@ export default function LandingPage() {
             },
           ].map((user, idx) => (
             <Card key={idx} className="p-4">
+<<<<<<< HEAD
 =======
       <motion.div className="flex justify-center mb-20" variants={fadeInUp} custom={8}>
         <Link to="/sign-in">
@@ -360,11 +391,16 @@ export default function LandingPage() {
               className="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition duration-300"
             >
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
               <div className="flex items-center space-x-4 mb-4">
                 <img
                   src={user.img}
                   alt={user.name}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
                   className="w-12 h-12 rounded-full object-cover"
                 />
                 <div>
@@ -384,6 +420,7 @@ export default function LandingPage() {
         </div>
       </section>
     </div>
+<<<<<<< HEAD
 =======
                   className="w-14 h-14 rounded-full object-cover border border-gray-300 shadow"
                 />
@@ -405,5 +442,7 @@ export default function LandingPage() {
       </section>
     </motion.div>
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
   );
 }

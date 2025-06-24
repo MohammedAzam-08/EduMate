@@ -3,9 +3,12 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import InstructorSidebar from "../../components/Instructor/InstructorSidebar";
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
 
 function AddCourse() {
   const [form, setForm] = useState({
@@ -61,12 +64,17 @@ function AddCourse() {
       formData.append("discount", discountValue);
       formData.append("image", image);
 <<<<<<< HEAD
+<<<<<<< HEAD
       formData.append("instructor[id]", "instructor_clerk_id"); // Replace with actual Clerk ID
       formData.append("instructor[name]", "Instructor Name");   // Replace with actual name
 =======
       formData.append("instructor[id]", "instructor_clerk_id");
       formData.append("instructor[name]", "Instructor Name");
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+      formData.append("instructor[id]", "instructor_clerk_id"); // Replace with actual Clerk ID
+      formData.append("instructor[name]", "Instructor Name");   // Replace with actual name
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
 
       await axios.post("http://localhost:5000/api/courses", formData, {
         headers: {
@@ -85,6 +93,9 @@ function AddCourse() {
 
   return (
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-500 px-4 py-8">
       <motion.div
         className="bg-white shadow-2xl rounded-3xl p-10 w-full max-w-4xl"
@@ -198,6 +209,7 @@ function AddCourse() {
           </motion.button>
         </form>
       </motion.div>
+<<<<<<< HEAD
 =======
     <div className="flex min-h-screen bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300">
       <InstructorSidebar />
@@ -311,6 +323,8 @@ function AddCourse() {
         </motion.div>
       </div>
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
     </div>
   );
 }

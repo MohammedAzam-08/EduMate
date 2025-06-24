@@ -34,6 +34,7 @@ router.get("/:id", getCourseById);
 // @desc    Create a new course
 // @route   POST /api/courses
 <<<<<<< HEAD
+<<<<<<< HEAD
 router.post("/", upload.single("image"), createCourse); // Optionally add: protect, isInstructor
 =======
 import multer from "multer";
@@ -47,6 +48,9 @@ const multerErrorHandler = (err, req, res, next) => {
 
 router.post("/", upload.single("image"), multerErrorHandler, createCourse); // Optionally add: protect, isInstructor
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+router.post("/", upload.single("image"), createCourse); // Optionally add: protect, isInstructor
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
 
 // @desc    Update a course
 // @route   PUT /api/courses/:id

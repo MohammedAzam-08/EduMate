@@ -68,11 +68,15 @@ export const getCourseById = async (req, res) => {
 export const createCourse = async (req, res) => {
   try {
 <<<<<<< HEAD
+<<<<<<< HEAD
      console.log("BODY:", req.body);
 =======
     console.log("Received createCourse request");
     console.log("BODY:", req.body);
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+     console.log("BODY:", req.body);
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
     console.log("FILE:", req.file);
     const {
       title,
@@ -86,11 +90,15 @@ export const createCourse = async (req, res) => {
     } = req.body;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
     // Parse instructor from nested form fields
     const instructor = req.body.instructor || {};
 
     // Basic validation
     if (!title || !description || !instructor.id || !instructor.name || !payment) {
+<<<<<<< HEAD
 =======
     // Parse instructor from flat form fields
     const instructor = {
@@ -108,6 +116,8 @@ export const createCourse = async (req, res) => {
     // Basic validation
     if (!title || !description || !instructor.id || !instructor.name || !paymentNum) {
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
       return res.status(400).json({ message: "Title, description, instructor id and name, and payment are required" });
     }
 
@@ -117,9 +127,12 @@ export const createCourse = async (req, res) => {
       const baseURL = process.env.BASE_URL || `http://${req.headers.host}`;
       image = `${baseURL}/uploads/${req.file.filename}`;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       console.log("Constructed image URL:", image);
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
     }
 
     // Parse tags if sent as JSON string
@@ -141,16 +154,22 @@ export const createCourse = async (req, res) => {
       tags: parsedTags,
       isPublished: Boolean(isPublished),
 <<<<<<< HEAD
+<<<<<<< HEAD
       payment,
       discount,
 =======
       payment: paymentNum,
       discount: discountNum,
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+      payment,
+      discount,
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
       image,
       videoLink: req.body.videoLink || "",
     });
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     const savedCourse = await newCourse.save();
     res.status(201).json(savedCourse);
@@ -163,6 +182,10 @@ export const createCourse = async (req, res) => {
       return res.status(400).json({ message: "Validation failed", errors: validationError.errors });
     }
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+    const savedCourse = await newCourse.save();
+    res.status(201).json(savedCourse);
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
   } catch (error) {
     console.error("Error in createCourse:", error.stack);
     res.status(500).json({ message: "Failed to create course", error: error.message });

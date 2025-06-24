@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
 import { LockIcon, MailIcon } from "lucide-react";
 import { motion } from "framer-motion";
 
 const StudentProfileSettings = () => {
+<<<<<<< HEAD
 =======
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -13,15 +17,21 @@ import StudentLayout from "../../components/Student/StudentLayout";
 const StudentProfileSettings = () => {
   const navigate = useNavigate();
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
   const [profile, setProfile] = useState({
     name: "",
     email: "",
     password: "",
 <<<<<<< HEAD
+<<<<<<< HEAD
     preferences: { darkMode: false },
 =======
     preferences: { emailNotifications: false },
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+    preferences: { darkMode: false },
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
   });
   const [loading, setLoading] = useState(true);
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -56,12 +66,15 @@ const StudentProfileSettings = () => {
   };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   const handleBack = () => {
     navigate(-1);
   };
 
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
   if (loading) {
     return (
       <div className="p-6 text-center text-gray-500 text-lg">Loading Profile Settings...</div>
@@ -70,6 +83,9 @@ const StudentProfileSettings = () => {
 
   return (
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
     <div className="min-h-screen bg-gradient-to-br from-slate-100 via-slate-200 to-slate-300 p-8">
       <motion.h1
         className="text-4xl font-bold text-gray-800 mb-10 text-center"
@@ -142,6 +158,7 @@ const StudentProfileSettings = () => {
         </motion.main>
       </div>
     </div>
+<<<<<<< HEAD
 =======
     <StudentLayout>
       
@@ -236,6 +253,8 @@ const StudentProfileSettings = () => {
       </div>
     </StudentLayout>
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
   );
 };
 

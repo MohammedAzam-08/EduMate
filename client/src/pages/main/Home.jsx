@@ -13,10 +13,14 @@ const Home = () => {
           <div className="mt-8">
             <Link
 <<<<<<< HEAD
+<<<<<<< HEAD
               to="/courses"
 =======
               to="/sign-in"
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+              to="/courses"
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
               className="bg-white text-blue-600 font-semibold py-3 px-6 rounded-full shadow-lg hover:bg-blue-50 transition"
             >
               Explore Courses

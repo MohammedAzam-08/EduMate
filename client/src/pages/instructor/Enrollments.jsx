@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { useParams } from "react-router-dom";
 import { Loader2, GraduationCap, Trash2, Mail, MessageSquare } from "lucide-react";
 =======
@@ -14,6 +15,10 @@ import {
 } from "lucide-react";
 import InstructorLayout from "../../components/Instructor/InstructorLayout";
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+import { useParams } from "react-router-dom";
+import { Loader2, GraduationCap, Trash2, Mail, MessageSquare } from "lucide-react";
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
 
 const statusColors = {
   enrolled: "bg-blue-100 text-blue-800",
@@ -24,9 +29,12 @@ const statusColors = {
 const Enrollments = () => {
   const { courseId } = useParams();
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   const navigate = useNavigate();
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
   const [enrollments, setEnrollments] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -36,12 +44,16 @@ const Enrollments = () => {
         let res;
         if (courseId) {
 <<<<<<< HEAD
+<<<<<<< HEAD
           res = await axios.get(`http://localhost:5000/api/enrollments/course/${courseId}`);
 =======
           res = await axios.get(
             `http://localhost:5000/api/enrollments/course/${courseId}`
           );
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+          res = await axios.get(`http://localhost:5000/api/enrollments/course/${courseId}`);
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
         } else {
           res = await axios.get("http://localhost:5000/api/enrollments");
         }
@@ -58,21 +70,30 @@ const Enrollments = () => {
 
   const handleRemove = (id) => {
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Implement your remove logic here
 =======
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+    // Implement your remove logic here
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
     alert(`Remove student with enrollment ID: ${id}`);
   };
 
   const handleMessage = (email) => {
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Implement your message logic here
 =======
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+    // Implement your message logic here
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
     alert(`Send message to: ${email}`);
   };
 
   return (
+<<<<<<< HEAD
 <<<<<<< HEAD
     <div className="min-h-screen bg-gray-50 py-12 px-4 md:px-8">
       <div className="max-w-6xl mx-auto">
@@ -83,6 +104,10 @@ const Enrollments = () => {
         {/* Back button removed as per request */}
 
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+    <div className="min-h-screen bg-gray-50 py-12 px-4 md:px-8">
+      <div className="max-w-6xl mx-auto">
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
         <h1 className="text-3xl md:text-4xl font-bold text-blue-700 mb-8 border-b pb-3 flex items-center gap-3">
           <GraduationCap size={32} /> Enrolled Students
         </h1>
@@ -121,15 +146,21 @@ const Enrollments = () => {
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-gray-600">
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
                       {enrollment.enrollmentDate
   ? new Date(enrollment.enrollmentDate).toLocaleDateString()
   : new Date(enrollment.createdAt).toLocaleDateString()}
 
+<<<<<<< HEAD
 =======
                         {enrollment.enrollmentDate
                           ? new Date(enrollment.enrollmentDate).toLocaleDateString()
                           : new Date(enrollment.createdAt).toLocaleDateString()}
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
                       </td>
                       <td className="px-6 py-4">
                         <span
@@ -163,10 +194,14 @@ const Enrollments = () => {
         )}
       </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
     </div>
 =======
     </InstructorLayout>
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+    </div>
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
   );
 };
 

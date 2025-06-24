@@ -3,11 +3,15 @@ import axios from "axios";
 import { SendIcon, MessageCircleIcon } from "lucide-react";
 import { motion } from "framer-motion";
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
 
 const StudentMessages = () => {
   const studentEmail = localStorage.getItem("userEmail");
   const [instructorEmail, setInstructorEmail] = useState("instructor@example.com");
 
+<<<<<<< HEAD
 =======
 import StudentLayout from "../../components/Student/StudentLayout";
 
@@ -19,11 +23,16 @@ const StudentMessages = () => {
   const [enrolledInstructors, setEnrolledInstructors] = useState([]);
   const [selectedInstructor, setSelectedInstructor] = useState(null);
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
   const [messages, setMessages] = useState([]);
   const [reply, setReply] = useState("");
 
   useEffect(() => {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
     if (!studentEmail) return;
 
     axios
@@ -39,6 +48,7 @@ const StudentMessages = () => {
 
   const handleSend = async () => {
     if (!reply.trim()) return;
+<<<<<<< HEAD
 =======
     if (!studentId) return;
 
@@ -82,15 +92,21 @@ const StudentMessages = () => {
   const handleSend = async () => {
     if (!reply.trim() || !selectedInstructor) return;
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
 
     const messagePayload = {
       senderName: studentEmail,
       senderRole: "student",
 <<<<<<< HEAD
+<<<<<<< HEAD
       recipientName: instructorEmail,
 =======
       recipientName: selectedInstructor.email,
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+      recipientName: instructorEmail,
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
       messageText: reply,
     };
 
@@ -106,10 +122,14 @@ const StudentMessages = () => {
 
   return (
 <<<<<<< HEAD
+<<<<<<< HEAD
     <div className="min-h-screen bg-gradient-to-br from-slate-100 via-slate-200 to-slate-300 p-6 sm:p-10">
 =======
     <StudentLayout>
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+    <div className="min-h-screen bg-gradient-to-br from-slate-100 via-slate-200 to-slate-300 p-6 sm:p-10">
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
       <motion.h2
         className="text-4xl font-extrabold text-gray-800 mb-8 flex items-center gap-3"
         initial={{ opacity: 0, y: -30 }}
@@ -120,6 +140,7 @@ const StudentMessages = () => {
         Messages
       </motion.h2>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
       <div className="space-y-5 mb-10 max-w-2xl mx-auto">
         {messages.length === 0 ? (
@@ -148,6 +169,10 @@ const StudentMessages = () => {
       <div className="space-y-5 mb-10 max-w-2xl mx-auto">
         {filteredMessages.length === 0 ? (
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+      <div className="space-y-5 mb-10 max-w-2xl mx-auto">
+        {messages.length === 0 ? (
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
           <motion.p
             className="text-gray-500 text-lg text-center mt-20"
             initial={{ opacity: 0 }}
@@ -158,10 +183,14 @@ const StudentMessages = () => {
           </motion.p>
         ) : (
 <<<<<<< HEAD
+<<<<<<< HEAD
           messages.map((msg, idx) => (
 =======
           filteredMessages.map((msg, idx) => (
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+          messages.map((msg, idx) => (
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
             <motion.div
               key={idx}
               className={`rounded-xl p-4 shadow-md border ${
@@ -205,10 +234,14 @@ const StudentMessages = () => {
         </button>
       </motion.div>
 <<<<<<< HEAD
+<<<<<<< HEAD
     </div>
 =======
     </StudentLayout>
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+    </div>
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
   );
 };
 

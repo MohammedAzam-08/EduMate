@@ -1,7 +1,10 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
 import Message from "../models/messageModel.js";
 import Course from "../models/courseModel.js";
 import Enrollment from "../models/enrollmentModel.js";
@@ -99,6 +102,7 @@ export const getEnrolledStudentsForInstructor = async (req, res) => {
   }
 };
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 // @desc    Get all enrolled instructors for a student
@@ -142,3 +146,5 @@ export const getEnrolledInstructorsForStudent = async (req, res) => {
   }
 };
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe

@@ -3,10 +3,13 @@ import axios from "axios";
 import { FiSend, FiCornerUpLeft } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import { useNavigate } from "react-router-dom";
 import InstructorSidebar from "../../components/Instructor/InstructorSidebar";
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
 
 const InstructorMessages = () => {
   const instructorEmail = localStorage.getItem("userEmail");
@@ -20,10 +23,13 @@ const InstructorMessages = () => {
   const [newMessage, setNewMessage] = useState("");
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   const navigate = useNavigate();
 
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
   useEffect(() => {
     if (!instructorId) return;
 
@@ -98,6 +104,9 @@ const InstructorMessages = () => {
     <div className="flex min-h-screen bg-gray-100 overflow-hidden">
       {/* Sidebar */}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
       <aside className="w-64 bg-white border-r shadow-lg p-4 overflow-y-auto">
         <h2 className="text-xl font-bold mb-4 text-blue-600">Students</h2>
         <ul className="space-y-2">
@@ -125,6 +134,7 @@ const InstructorMessages = () => {
             Chat with {selectedStudent?.name || "a student"}
           </h2>
 
+<<<<<<< HEAD
 =======
       <InstructorSidebar />
 
@@ -139,6 +149,8 @@ const InstructorMessages = () => {
 
         <div className="bg-white rounded-lg shadow-md p-5 flex-1 flex flex-col">
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
           <div className="flex-1 overflow-y-auto space-y-4 pr-2">
             <AnimatePresence initial={false}>
               {filteredMessages.map((msg, index) => {
@@ -162,9 +174,13 @@ const InstructorMessages = () => {
                     </p>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                     {/* Reply Button (only for student messages) */}
 =======
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+                    {/* Reply Button (only for student messages) */}
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
                     {!isInstructor && (
                       <button
                         onClick={() => handleReply(msg.senderName)}

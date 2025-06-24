@@ -39,6 +39,7 @@ app.use(cors({
 
 app.use(express.json({ limit: "10kb" }));
 <<<<<<< HEAD
+<<<<<<< HEAD
 app.use(helmet());
 =======
 app.use(
@@ -48,6 +49,9 @@ app.use(
   })
 );
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+app.use(helmet());
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
 app.use(morgan("dev"));
 
 app.use((req, res, next) => {

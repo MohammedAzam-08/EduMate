@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 const ProfileSettings = () => {
 =======
@@ -20,6 +21,10 @@ const ProfileSettings = () => {
   const navigate = useNavigate();
 
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+
+const ProfileSettings = () => {
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
   const [formData, setFormData] = useState({
     name: "John Doe",
     email: "john@example.com",
@@ -41,6 +46,9 @@ const ProfileSettings = () => {
     e.preventDefault();
     console.log("Form submitted", formData);
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
     // Send the data to the backend here
   };
 
@@ -177,6 +185,7 @@ const ProfileSettings = () => {
 };
 
 export default ProfileSettings;
+<<<<<<< HEAD
 =======
     // TODO: Send the data to the backend
   };
@@ -308,3 +317,5 @@ export default ProfileSettings;
 
 export default ProfileSettings;
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe

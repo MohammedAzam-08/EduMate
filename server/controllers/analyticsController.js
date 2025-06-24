@@ -1,7 +1,10 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
 import Course from "../models/courseModel.js";
 import Enrollment from "../models/enrollmentModel.js";
 import Material from "../models/materialModel.js";
@@ -25,6 +28,7 @@ export const getInstructorCourseAnalytics = async (req, res) => {
     // 4. Placeholder for messages if you implement them
     const messageCount = 0;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     // 5. Enrollments & Materials Overview per course
@@ -67,17 +71,23 @@ export const getInstructorCourseAnalytics = async (req, res) => {
     ];
 
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
     res.status(200).json({
       totalCourses: courses.length,
       totalEnrollments: enrollmentCount,
       totalMaterials: materialCount,
       totalMessages: messageCount,
 <<<<<<< HEAD
+<<<<<<< HEAD
     });
 =======
       courseOverview,
 f    });
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+    });
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
   } catch (error) {
     res.status(500).json({ message: "Failed to fetch instructor analytics", error: error.message });
   }

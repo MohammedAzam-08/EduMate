@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
 import {
   FiBookOpen,
   FiInbox,
@@ -11,11 +14,14 @@ import {
 } from "react-icons/fi";
 import { motion } from "framer-motion";
 import axios from "axios";
+<<<<<<< HEAD
 =======
 import { motion } from "framer-motion";
 import axios from "axios";
 import StudentLayout from "../../components/Student/StudentLayout";
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
 
 const StudentDashboard = () => {
   const [courses, setCourses] = useState([]);
@@ -25,6 +31,9 @@ const StudentDashboard = () => {
 
   useEffect(() => {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
     axios.get("http://localhost:5000/api/enrollments/student")
       .then((res) => setCourses(res.data))
       .catch((err) => console.error(err));
@@ -34,6 +43,7 @@ const StudentDashboard = () => {
       .catch((err) => console.error(err));
 
     axios.get("http://localhost:5000/api/study-materials/student")
+<<<<<<< HEAD
 =======
     const token = localStorage.getItem("token");
     const config = {
@@ -52,6 +62,8 @@ const StudentDashboard = () => {
 
     axios.get("http://localhost:5000/api/materials", config)
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
       .then((res) => setMaterials(res.data))
       .catch((err) => console.error(err));
   }, []);
@@ -63,6 +75,9 @@ const StudentDashboard = () => {
 
   return (
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
     <div className="flex min-h-screen bg-gradient-to-r from-gray-50 to-indigo-50">
       {/* Sidebar */}
       <aside className="w-64 bg-gradient-to-b from-indigo-800 to-indigo-700 text-white flex flex-col p-6 space-y-6 shadow-lg">
@@ -188,6 +203,7 @@ const NavItem = ({ to, icon, label }) => (
   </Link>
 );
 
+<<<<<<< HEAD
 export default StudentDashboard;
 =======
     <StudentLayout>
@@ -262,3 +278,6 @@ const StatCard = ({ title, value }) => (
 
 export default StudentDashboard;
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+export default StudentDashboard;
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe

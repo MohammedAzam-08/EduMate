@@ -5,9 +5,12 @@ import {
   getMessagesByCourse,
   getEnrolledStudentsForInstructor,
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   getEnrolledInstructorsForStudent,
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
 } from "../controllers/messageController.js";
 
 const router = express.Router();
@@ -25,9 +28,12 @@ router.get("/course/:courseId", getMessagesByCourse);
 router.get("/enrolled-students/:instructorId", getEnrolledStudentsForInstructor);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 // 🔸 Get enrolled instructors for a student
 router.get("/enrolled-instructors/:studentId", getEnrolledInstructorsForStudent);
 
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
 export default router;

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { FileTextIcon, DownloadIcon, BookOpenTextIcon } from "lucide-react";
 import { motion } from "framer-motion";
 import { Tooltip } from "react-tooltip";
@@ -11,6 +12,11 @@ import { Tooltip } from "react-tooltip";
 import { useNavigate } from "react-router-dom";
 import StudentLayout from "../../components/Student/StudentLayout";
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+import { FileTextIcon, DownloadIcon, BookOpenTextIcon } from "lucide-react";
+import { motion } from "framer-motion";
+import { Tooltip } from "react-tooltip";
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
 
 function parseJwt(token) {
   try {
@@ -31,9 +37,12 @@ function parseJwt(token) {
 const StudentStudyMaterials = () => {
   const [materials, setMaterials] = useState([]);
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   const navigate = useNavigate();
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -50,11 +59,15 @@ const StudentStudyMaterials = () => {
 
   return (
 <<<<<<< HEAD
+<<<<<<< HEAD
     <div className="min-h-screen bg-gradient-to-br from-[#f6f7fb] via-white to-[#f1f4fa] py-12 px-6 sm:px-10">
 =======
     <StudentLayout>
 
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+    <div className="min-h-screen bg-gradient-to-br from-[#f6f7fb] via-white to-[#f1f4fa] py-12 px-6 sm:px-10">
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
       <motion.h2
         className="text-4xl font-bold text-gray-800 mb-10 flex items-center gap-3"
         initial={{ opacity: 0, y: -20 }}
@@ -103,17 +116,25 @@ const StudentStudyMaterials = () => {
 
               <div className="flex justify-between items-center mt-4 pt-4 border-t border-gray-100">
 <<<<<<< HEAD
+<<<<<<< HEAD
                 {/* Highlighted course badge */}
 =======
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+                {/* Highlighted course badge */}
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
                 <span className="inline-block bg-indigo-100 text-indigo-700 text-xs font-semibold px-3 py-1 rounded-full">
                   {material.courseTitle || "N/A"}
                 </span>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                 {/* Download link with tooltip */}
 =======
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+                {/* Download link with tooltip */}
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
                 <a
                   href={`http://localhost:5000/download/${material.fileUrl.split('/').pop()}`}
                   download
@@ -132,19 +153,27 @@ const StudentStudyMaterials = () => {
               </div>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
               {/* Optional shimmer/overlay for shine */}
 =======
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+              {/* Optional shimmer/overlay for shine */}
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
               <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-white/5 via-transparent to-white/5 rounded-2xl" />
             </motion.div>
           ))}
         </motion.div>
       )}
 <<<<<<< HEAD
+<<<<<<< HEAD
     </div>
 =======
     </StudentLayout>
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+    </div>
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
   );
 };
 

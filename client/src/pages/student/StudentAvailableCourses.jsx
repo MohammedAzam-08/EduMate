@@ -4,9 +4,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { BookOpenIcon, SearchIcon } from "lucide-react";
 import { motion } from "framer-motion";
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import StudentLayout from "../../components/Student/StudentLayout";
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
 
 const StudentAvailableCourses = () => {
   const [courses, setCourses] = useState([]);
@@ -55,11 +58,15 @@ const StudentAvailableCourses = () => {
 
   return (
 <<<<<<< HEAD
+<<<<<<< HEAD
     <div className="min-h-screen bg-gradient-to-br from-slate-100 via-slate-200 to-slate-300 p-6 sm:p-10">
 =======
     <StudentLayout>
 
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+    <div className="min-h-screen bg-gradient-to-br from-slate-100 via-slate-200 to-slate-300 p-6 sm:p-10">
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
       <motion.div
         className="mb-8"
         initial={{ opacity: 0, y: -30 }}
@@ -157,10 +164,14 @@ const StudentAvailableCourses = () => {
         </motion.div>
       )}
 <<<<<<< HEAD
+<<<<<<< HEAD
     </div>
 =======
     </StudentLayout>
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+    </div>
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
   );
 };
 

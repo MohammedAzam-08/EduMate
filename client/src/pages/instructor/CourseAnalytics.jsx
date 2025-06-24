@@ -14,11 +14,14 @@ import {
 } from "recharts";
 import { motion } from "framer-motion";
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import InstructorLayout from "../../components/Instructor/InstructorLayout";
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
 
 const fadeIn = {
   hidden: { opacity: 0, y: 30 },
@@ -33,6 +36,9 @@ const CourseAnalytics = ({ instructorName }) => {
   const [stats, setStats] = useState(null);
   const [loading, setLoading] = useState(true);
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
 
   const courseData = [
     { name: "React Basics", students: 120, materials: 10 },
@@ -48,6 +54,7 @@ const CourseAnalytics = ({ instructorName }) => {
     { day: "Thu", messages: 10, views: 75 },
     { day: "Fri", messages: 6, views: 50 },
   ];
+<<<<<<< HEAD
 =======
   const navigate = useNavigate();
 
@@ -69,10 +76,13 @@ const CourseAnalytics = ({ instructorName }) => {
   const courseData = stats?.courseOverview || [];
   const activityData = stats?.weeklyActivity || [];
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
 
   useEffect(() => {
     const fetchAnalytics = async () => {
       try {
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         // Get token from localStorage
@@ -98,6 +108,8 @@ const CourseAnalytics = ({ instructorName }) => {
         }
 
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
         const response = await axios.get(
           `http://localhost:5000/api/analytics/instructor/${instructorName}`
         );
@@ -110,6 +122,9 @@ const CourseAnalytics = ({ instructorName }) => {
     };
     fetchAnalytics();
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
   }, [instructorName]);
 
   return (
@@ -240,6 +255,7 @@ const CourseAnalytics = ({ instructorName }) => {
         )}
       </motion.div>
     </motion.div>
+<<<<<<< HEAD
 =======
   }, []);
 
@@ -379,6 +395,8 @@ const CourseAnalytics = ({ instructorName }) => {
       </motion.div>
     </InstructorLayout>
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
   );
 };
 
@@ -395,6 +413,9 @@ const StatCard = ({ title, value, color, index }) => (
 
 export default CourseAnalytics;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe

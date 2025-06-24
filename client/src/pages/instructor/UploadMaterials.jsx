@@ -2,10 +2,13 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import { useNavigate } from "react-router-dom";
 import InstructorLayout from "../../components/Instructor/InstructorLayout";
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -14,9 +17,12 @@ const fadeInUp = {
 
 const UploadMaterials = ({ instructorName }) => {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   const navigate = useNavigate();
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
   const [courses, setCourses] = useState([]);
   const [courseId, setCourseId] = useState("");
   const [title, setTitle] = useState("");
@@ -27,9 +33,13 @@ const UploadMaterials = ({ instructorName }) => {
 
   useEffect(() => {
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Fetch courses from server on component mount
 =======
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+    // Fetch courses from server on component mount
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
     const fetchCourses = async () => {
       try {
         const response = await axios.get("http://localhost:5000/api/courses");
@@ -76,6 +86,9 @@ const UploadMaterials = ({ instructorName }) => {
 
   return (
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
     <motion.div
       className="min-h-screen bg-gradient-to-tr from-blue-50 via-white to-blue-100 p-6"
       initial="hidden"
@@ -180,6 +193,7 @@ const UploadMaterials = ({ instructorName }) => {
         </form>
       </motion.div>
     </motion.div>
+<<<<<<< HEAD
 =======
     <InstructorLayout>
       <div className="min-h-screen bg-gradient-to-tr from-blue-50 via-white to-blue-100 p-6 max-w-2xl mx-auto">
@@ -286,6 +300,8 @@ const UploadMaterials = ({ instructorName }) => {
       </div>
     </InstructorLayout>
 >>>>>>> dcd67e4 (Updated stylings)
+=======
+>>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
   );
 };
 
