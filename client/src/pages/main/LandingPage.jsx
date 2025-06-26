@@ -60,24 +60,24 @@ const bounceIn = {
 
 const testimonials = [
   {
-    name: "Donald Jackman",
-    title: "SWE 1 @ Amazon",
+    name: "Mohammed Syed",
+    title: "Intern @ CDAC",
     rating: 5,
-    text: "I've been using Edemy for two years. It's incredibly user-friendly, making my work much easier.",
+    text: "As interns, we found Edumate very easy to use and helpful in learning new concepts quickly.",
     img: "/images/sayad.jpeg",
   },
   {
-    name: "Richard Nelson",
-    title: "SWE 2 @ Samsung",
+    name: "Mohammed Azam",
+    title: "Intern @ CDAC",
     rating: 4,
-    text: "Interactive courses, great instructors, and a clean UI — love the experience.",
+    text: "Great platform for learning! The courses are interactive and the UI is clean and intuitive.",
     img: "/images/azam.jpeg",
   },
   {
-    name: "Kammu Washington",
-    title: "SWE 2 @ Rupa UnderGarments",
-    rating: 1,
-    text: "User-friendly interface and high-quality content. It’s my go-to for learning.",
+    name: "Mohammed Arhan",
+    title: "Intern @ CDAC",
+    rating: 3,
+    text: "The platform provides a smooth learning experience, especially for beginners like us.",
     img: "/images/arhan.jpeg",
   },
 ];
@@ -113,7 +113,7 @@ export default function LandingPage() {
     >
       {/* Navbar */}
       <motion.nav
-        className="flex items-center justify-between bg-white shadow-lg py-4 px-10 border-b border-gray-200 rounded-b-2xl backdrop-blur-md"
+        className="flex items-center justify-between bg-white shadow-lg py-4 px-10 border-b border-gray-200 rounded-b-2xl backdrop-blur-md sticky top-0 z-50"
         variants={slideIn}
         custom={1}
       >
@@ -182,25 +182,34 @@ export default function LandingPage() {
           <p className="text-center col-span-full text-gray-500">No courses found.</p>
         ) : (
           filteredCourses.slice(0, 4).map((course, idx) => (
-            <Card key={idx} className="overflow-hidden">
-              <img
-                src={course.image || "/images/default-course.jpg"}
-                alt={course.title}
-                className="h-40 w-full object-cover"
-              />
-              <CardContent className="p-4">
-                <h3 className="font-bold">{course.title}</h3>
-                <p className="text-sm text-gray-500 mb-2">
-                  {course.instructorName || "Instructor"}
-                </p>
-                <div className="flex items-center text-yellow-500 text-sm mb-2">
-                  {"★".repeat(4)}{"☆".repeat(1)}
-                </div>
-                <p className="text-blue-600 font-bold">
-                  {course.price ? `$${course.price}` : "Free"}
-                </p>
-              </CardContent>
-            </Card>
+            <motion.div
+              key={idx}
+              variants={scaleIn}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={idx + 4}
+            >
+              <Card className="overflow-hidden hover:shadow-xl transition duration-300 rounded-xl">
+                <img
+                  src={course.image || "/images/default-course.jpg"}
+                  alt={course.title}
+                  className="h-40 w-full object-cover"
+                />
+                <CardContent className="p-4">
+                  <h3 className="font-bold text-lg text-gray-800">{course.title}</h3>
+                  <p className="text-sm text-gray-500 mb-2">
+                    {course.instructorName || "Instructor"}
+                  </p>
+                  <div className="flex items-center text-yellow-500 text-sm mb-2">
+                    {"★".repeat(4)}{"☆".repeat(1)}
+                  </div>
+                  <p className="text-blue-600 font-bold">
+                    {course.price ? `$${course.price}` : "Free"}
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))
         )}
       </section>
@@ -208,7 +217,7 @@ export default function LandingPage() {
       {/* Show All Button */}
       <div className="flex justify-center mb-12">
         <Link to="/student/available-courses">
-          <Button variant="outline" className="rounded-full">
+          <Button variant="outline" className="rounded-full hover:bg-blue-50">
             Show all courses
           </Button>
         </Link>

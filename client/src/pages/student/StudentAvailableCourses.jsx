@@ -34,9 +34,9 @@ const StudentAvailableCourses = () => {
 
   const handleEnroll = (courseId) => {
     const studentName = localStorage.getItem("userName") || "Student";
-    const course = courses.find(c => c._id === courseId);
+    const course = courses.find((c) => c._id === courseId);
     const coursePrice = course ? course.price : 29.99;
-    const courseCurrency = course ? course.currency || 'usd' : 'usd';
+    const courseCurrency = course ? course.currency || "usd" : "usd";
     navigate("/payment", {
       state: {
         courseId,
@@ -90,7 +90,15 @@ const StudentAvailableCourses = () => {
                 transition={{ delay: index * 0.1, duration: 0.6 }}
               >
                 <img
-                  src={course.image || "/vite.svg"}
+                  src={
+                    course.image
+                      ? course.image.startsWith("http")
+                        ? course.image
+                        : course.image.startsWith("uploads/")
+                        ? `http://localhost:5000/${course.image}`
+                        : `http://localhost:5000/uploads/${course.image}`
+                      : "/vite.svg"
+                  }
                   alt={course.title}
                   className="h-48 w-full object-cover"
                   onError={(e) => {
@@ -105,7 +113,6 @@ const StudentAvailableCourses = () => {
                   <p className="text-gray-600 text-sm line-clamp-3">
                     {course.description}
                   </p>
-
                   <div className="text-sm text-gray-500 space-y-1">
                     <p>
                       <span className="font-medium text-gray-700">Instructor:</span>{" "}
@@ -118,21 +125,22 @@ const StudentAvailableCourses = () => {
                       {course.duration}
                     </p>
                   </div>
-
-                    <div className="mt-auto pt-4 flex gap-2">
-                      <Link
-                        to={`/student/courses/${course._id}`}
-                        className="flex-1 text-center bg-indigo-500 text-white text-sm font-semibold py-2 px-4 rounded-lg hover:bg-indigo-600 transition-all duration-300"
-                      >
-                        View Course →
-                      </Link>
-                    {/* <button
+                  <div className="mt-auto pt-4 flex gap-2">
+                    <Link
+                      to={`/student/courses/${course._id}`}
+                      className="flex-1 text-center bg-indigo-500 text-white text-sm font-semibold py-2 px-4 rounded-lg hover:bg-indigo-600 transition-all duration-300"
+                    >
+                      View Course →
+                    </Link>
+                    {/* Optional Enroll Button
+                    <button
                       onClick={() => handleEnroll(course._id)}
                       className="flex-1 bg-green-500 text-white text-sm font-semibold py-2 px-4 rounded-lg hover:bg-green-600 transition-all duration-300"
                     >
                       Enroll Now
-                    </button> */}
-                    </div>
+                    </button> 
+                    */}
+                  </div>
                 </div>
               </motion.div>
             ))}

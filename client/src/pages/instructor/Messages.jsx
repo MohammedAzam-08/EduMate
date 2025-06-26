@@ -19,13 +19,15 @@ const InstructorMessages = () => {
     if (!instructorId) return;
     const fetchEnrolledStudents = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/messages/enrolled-students/${instructorId}`);
+        const res = await axios.get(
+          `http://localhost:5000/api/messages/enrolled-students/${instructorId}`
+        );
         setStudents(res.data);
         if (!selectedStudent && res.data.length > 0) {
           setSelectedStudent(res.data[0]);
         }
       } catch (err) {
-        console.error("Error fetching enrolled students:", err);
+        console.error("Error fetching students:", err);
       }
     };
     fetchEnrolledStudents();
@@ -35,7 +37,9 @@ const InstructorMessages = () => {
     if (!instructorEmail) return;
     const fetchMessages = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/messages/user/${instructorEmail}`);
+        const res = await axios.get(
+          `http://localhost:5000/api/messages/user/${instructorEmail}`
+        );
         setAllMessages(res.data);
       } catch (err) {
         console.error("Error fetching messages:", err);
@@ -48,14 +52,17 @@ const InstructorMessages = () => {
     if (!instructorEmail || !selectedStudent) return;
     const relevant = allMessages.filter(
       (msg) =>
-        (msg.senderName === instructorEmail && msg.recipientName === selectedStudent.email) ||
-        (msg.senderName === selectedStudent.email && msg.recipientName === instructorEmail)
+        (msg.senderName === instructorEmail &&
+          msg.recipientName === selectedStudent.email) ||
+        (msg.senderName === selectedStudent.email &&
+          msg.recipientName === instructorEmail)
     );
     setFilteredMessages(relevant);
   }, [selectedStudent, allMessages, instructorEmail]);
 
   const handleSend = async () => {
     if (!newMessage.trim() || !selectedStudent) return;
+
     const messagePayload = {
       senderName: instructorEmail,
       senderRole: "instructor",
@@ -78,44 +85,49 @@ const InstructorMessages = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-gradient-to-tr from-blue-50 to-white">
+    <div className="flex min-h-screen bg-gradient-to-tr from-blue-100 via-white to-blue-50">
       {/* Sidebar */}
       <InstructorSidebar />
 
-      {/* Chat Interface */}
-      <main className="flex-1 p-6 flex flex-col">
+      {/* Main Chat Section */}
+      <main className="flex-1 flex flex-col p-6">
         {/* Header */}
-        <motion.div
+        <motion.header
           className="mb-6"
-          initial={{ opacity: 0, y: -10 }}
+          initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
         >
           <h2 className="text-3xl font-bold text-blue-800">
-            Chat with {selectedStudent?.name || "a student"}
+            Chat with {selectedStudent?.name || "a Student"}
           </h2>
-          <p className="text-sm text-gray-500">Select a student to start conversation</p>
-        </motion.div>
+          <p className="text-sm text-gray-600">
+            Select a student to start the conversation.
+          </p>
+        </motion.header>
 
         <div className="flex flex-1 gap-6 overflow-hidden">
-          {/* Student List */}
+          {/* Sidebar - Students */}
           <motion.aside
-            className="w-64 bg-white border-r border-gray-200 rounded-xl shadow-lg p-4 overflow-y-auto"
-            initial={{ x: -20, opacity: 0 }}
+            className="w-72 bg-white rounded-xl shadow-lg border border-gray-200 p-4 overflow-y-auto"
+            initial={{ x: -30, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.4 }}
           >
-            <h3 className="text-xl font-semibold text-blue-600 mb-4">Students</h3>
+            <h3 className="text-xl font-semibold text-blue-700 mb-4">Students</h3>
             <ul className="space-y-2">
-              {students.map((student, idx) => (
+              {students.map((student, index) => (
                 <motion.li
-                  key={student._id || idx}
+                  key={student._id}
+                  className={`cursor-pointer px-4 py-2 rounded-lg hover:bg-blue-100 transition duration-300 ${
+                    selectedStudent?.email === student.email
+                      ? "bg-blue-200 font-semibold text-blue-900"
+                      : "text-gray-700"
+                  }`}
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: idx * 0.05 }}
+                  transition={{ delay: index * 0.05 }}
                   onClick={() => setSelectedStudent(student)}
-                  className={`cursor-pointer px-4 py-2 rounded-lg hover:bg-blue-100 transition ${
-                    selectedStudent?.email === student.email ? "bg-blue-200 font-semibold" : ""
-                  }`}
                 >
                   {student.name}
                 </motion.li>
@@ -125,36 +137,37 @@ const InstructorMessages = () => {
 
           {/* Chat Box */}
           <motion.section
-            className="flex-1 flex flex-col bg-white rounded-xl shadow-md p-5"
+            className="flex-1 bg-white rounded-xl shadow-xl p-5 flex flex-col"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
+            transition={{ duration: 0.4 }}
           >
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto space-y-4 pr-2">
+            <div className="flex-1 overflow-y-auto pr-2 space-y-4">
               <AnimatePresence initial={false}>
-                {filteredMessages.map((msg, index) => {
+                {filteredMessages.map((msg, idx) => {
                   const isInstructor = msg.senderName === instructorEmail;
                   return (
                     <motion.div
-                      key={index}
-                      initial={{ opacity: 0, y: 10 }}
+                      key={idx}
+                      className={`group max-w-lg px-4 py-3 rounded-xl relative text-sm shadow-md ${
+                        isInstructor
+                          ? "ml-auto bg-blue-100 text-right"
+                          : "bg-gray-200 text-left"
+                      }`}
+                      initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
                       transition={{ duration: 0.2 }}
-                      className={`group max-w-lg px-4 py-2 rounded-lg shadow-sm relative ${
-                        isInstructor
-                          ? "bg-blue-100 ml-auto text-right"
-                          : "bg-gray-200 text-left"
-                      }`}
                     >
-                      <p className="text-sm">{msg.messageText}</p>
+                      <p>{msg.messageText}</p>
                       <p className="text-xs text-gray-500 mt-1">
                         {new Date(msg.createdAt).toLocaleString()}
                       </p>
                       {!isInstructor && (
                         <button
                           onClick={() => handleReply(msg.senderName)}
-                          className="absolute top-1 right-1 opacity-0 group-hover:opacity-100 text-gray-500 hover:text-blue-600 transition"
+                          className="absolute top-1 right-1 opacity-0 group-hover:opacity-100 transition text-gray-500 hover:text-blue-600"
                           title="Reply"
                         >
                           <FiCornerUpLeft className="w-4 h-4" />
@@ -166,19 +179,20 @@ const InstructorMessages = () => {
               </AnimatePresence>
             </div>
 
-            {/* Message Input */}
+            {/* Input Box */}
             <motion.div
               className="mt-4 flex items-center gap-3"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
             >
               <input
                 type="text"
+                placeholder="Type your message..."
+                className="flex-1 px-5 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
                 value={newMessage}
                 onChange={(e) => setNewMessage(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleSend()}
-                placeholder="Type your message..."
-                className="flex-1 px-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
               />
               <button
                 onClick={handleSend}

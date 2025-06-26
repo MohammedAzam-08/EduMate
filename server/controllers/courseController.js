@@ -1,31 +1,29 @@
-import Course from "../models/courseModel.js";
 
-// ✅ Get all courses (admin/testing)
+import Course from "../models/courseModel.js";
+import path from "path";
+
+const BASE_URL = process.env.BASE_URL || "http://localhost:5000";
+
+// ✅ Get all courses (Admin/testing purpose)
 export const getAllCourses = async (req, res) => {
   try {
     const courses = await Course.find().lean();
-    res.status(200).json(courses);
+
+    // Prepend BASE_URL to image if not already a full URL
+    const updatedCourses = courses.map(course => {
+      if (course.image && !course.image.startsWith("http")) {
+        course.image = `${BASE_URL}/uploads/${course.image}`;
+      }
+      return course;
+    });
+
+    res.status(200).json(updatedCourses);
   } catch (error) {
     res.status(500).json({ message: "Failed to fetch courses", error: error.message });
   }
 };
 
 // ✅ Get only published courses (for students)
-export const getPublishedCoursesForStudents = async (req, res) => {
-  try {
-    const search = req.query.search || "";
-    const regex = new RegExp(search, "i");
-
-    const courses = await Course.find({
-      published: true,
-      title: { $regex: regex },
-    });
-
-    res.status(200).json(courses);
-  } catch (error) {
-    res.status(500).json({ message: "Failed to fetch courses", error: error.message });
-  }
-};
 
 // ✅ Get courses by instructor
 export const getCoursesByInstructor = async (req, res) => {
@@ -39,6 +37,31 @@ export const getCoursesByInstructor = async (req, res) => {
     res.status(200).json(courses);
   } catch (error) {
     res.status(500).json({ message: "Failed to fetch instructor's courses", error: error.message });
+  }
+};
+
+// ✅ Get only published courses (for students)
+export const getPublishedCoursesForStudents = async (req, res) => {
+  try {
+    const search = req.query.search || "";
+    const regex = new RegExp(search, "i");
+
+    let courses = await Course.find({
+      published: true,
+      title: { $regex: regex },
+    }).lean();
+
+    // Prepend BASE_URL to image if not already a full URL
+    courses = courses.map(course => {
+      if (course.image && !course.image.startsWith("http")) {
+        course.image = `${BASE_URL}/uploads/${course.image}`;
+      }
+      return course;
+    });
+
+    res.status(200).json(courses);
+  } catch (error) {
+    res.status(500).json({ message: "Failed to fetch courses", error: error.message });
   }
 };
 
@@ -60,6 +83,7 @@ export const getCourseById = async (req, res) => {
     res.status(500).json({ message: "Failed to get course", error: error.message });
   }
 };
+
 
 // ✅ Create a new course
 export const createCourse = async (req, res) => {
@@ -172,3 +196,6 @@ export const deleteCourse = async (req, res) => {
     res.status(500).json({ message: "Failed to delete course", error: error.message });
   }
 };
+
+
+

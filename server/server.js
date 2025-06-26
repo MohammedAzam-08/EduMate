@@ -46,14 +46,14 @@ app.use(
   })
 );
 app.use(helmet());
-app.use(morgan("dev"));
+/* app.use(morgan("dev")); */
 
 app.use((req, res, next) => {
   res.setHeader("Content-Type", "application/json");
   next();
 });
 
-  
+
 // Static files (e.g., uploaded study materials)
 app.use(
   "/uploads",
@@ -103,11 +103,13 @@ app.get("/", (req, res) => {
   res.send("🎓 EduMate API is running...");
 });
 
+/*
 // 404 handler
 app.use((req, res, next) => {
   console.warn(`🔍 Not Found: ${req.method} ${req.originalUrl}`);
   res.status(404).json({ message: "Route not found" });
 });
+*/
 
 // Global error handler
 import errorHandler from "./middleware/errorHandler.js";
