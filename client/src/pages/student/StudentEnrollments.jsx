@@ -2,24 +2,10 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { GraduationCapIcon } from "lucide-react";
 import { motion } from "framer-motion";
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-const StudentEnrollments = () => {
-  const [enrollments, setEnrollments] = useState([]);
-=======
-import { useNavigate } from "react-router-dom";
 import StudentLayout from "../../components/Student/StudentLayout";
 
 const StudentEnrollments = () => {
   const [enrollments, setEnrollments] = useState([]);
-  const navigate = useNavigate();
->>>>>>> dcd67e4 (Updated stylings)
-=======
-
-const StudentEnrollments = () => {
-  const [enrollments, setEnrollments] = useState([]);
->>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
 
   useEffect(() => {
     const studentEmail = localStorage.getItem("userEmail");
@@ -27,6 +13,7 @@ const StudentEnrollments = () => {
       console.error("No student email found");
       return;
     }
+
     axios
       .get(`http://localhost:5000/api/enrollments/student/${studentEmail}`)
       .then((res) => setEnrollments(res.data))
@@ -34,16 +21,7 @@ const StudentEnrollments = () => {
   }, []);
 
   return (
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <div className="min-h-screen bg-gradient-to-br from-slate-100 via-slate-200 to-slate-300 p-6 sm:p-10">
-=======
     <StudentLayout>
-
->>>>>>> dcd67e4 (Updated stylings)
-=======
-    <div className="min-h-screen bg-gradient-to-br from-slate-100 via-slate-200 to-slate-300 p-6 sm:p-10">
->>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
       <motion.h2
         className="text-4xl font-extrabold text-gray-800 mb-8 flex items-center gap-3"
         initial={{ opacity: 0, y: -30 }}
@@ -104,15 +82,7 @@ const StudentEnrollments = () => {
           </table>
         </motion.div>
       )}
-<<<<<<< HEAD
-<<<<<<< HEAD
-    </div>
-=======
     </StudentLayout>
->>>>>>> dcd67e4 (Updated stylings)
-=======
-    </div>
->>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
   );
 };
 

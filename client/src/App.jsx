@@ -32,6 +32,7 @@ import StudentStudyMaterials from "./pages/student/StudentStudyMaterials";
 import StudentMessages from "./pages/student/StudentMessages";
 import StudentProfileSettings from "./pages/student/StudentProfileSettings";
 import StudentCourseDetails from "./pages/student/StudentCourseDetails";
+import PaymentPage from "./pages/payment/PaymentPage";
 
 // Main Pages
 import AboutUs from "./pages/main/AboutUs";
@@ -76,12 +77,13 @@ function App() {
           {/* Student Routes */}
           <Route path="/student-dashboard" element={<ProtectedRoute><StudentDashboard /></ProtectedRoute>} />
          <Route path="/student/available-courses" element={<StudentAvailableCourses />} />
+         <Route path="/payment" element={<PaymentPage />} />
 
           <Route path="/student/enrollments" element={<ProtectedRoute><StudentEnrollments /></ProtectedRoute>} />
           <Route path="/student/study-materials" element={<ProtectedRoute><StudentStudyMaterials /></ProtectedRoute>} />
           <Route path="/student/messages" element={<ProtectedRoute><StudentMessages /></ProtectedRoute>} />
           <Route path="/student/settings" element={<ProtectedRoute><StudentProfileSettings /></ProtectedRoute>} />
-          <Route path="/courses/:id" element={<CourseDetails />} />
+          <Route path="/student/courses/:id" element={<ProtectedRoute><StudentCourseDetails /></ProtectedRoute>} />
 
 
           {/* Fallback */}

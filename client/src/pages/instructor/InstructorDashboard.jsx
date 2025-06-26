@@ -7,44 +7,23 @@ import {
   FiBarChart2,
   FiMessageSquare,
   FiSettings,
-  FiPlus
 } from "react-icons/fi";
 import { motion } from "framer-motion";
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-import InstructorSidebar from "../../components/Instructor/InstructorSidebar";
->>>>>>> dcd67e4 (Updated stylings)
-=======
->>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
 
 const InstructorDashboard = () => {
   const navigate = useNavigate();
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
   const handleLogout = () => {
-    localStorage.removeItem("token"); // or any other logout logic
+    localStorage.removeItem("token"); // Logout logic
     navigate("/login");
   };
 
-<<<<<<< HEAD
-=======
->>>>>>> dcd67e4 (Updated stylings)
-=======
->>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
   const handleNewCourse = () => {
-    navigate("/instructor/courses/new");
+    navigate("/instructor/addcourse");
   };
 
   return (
     <div className="flex min-h-screen bg-gradient-to-r from-gray-50 to-blue-50">
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
       {/* Sidebar */}
       <aside className="w-64 bg-gradient-to-b from-blue-800 to-blue-700 text-white flex flex-col p-6 space-y-6 shadow-lg">
         <h2 className="text-3xl font-bold mb-6 tracking-wide">🎓 EduMate</h2>
@@ -57,14 +36,6 @@ const InstructorDashboard = () => {
           <NavItem to="/instructor/settings" icon={<FiSettings />} label="Profile Settings" />
         </nav>
       </aside>
-<<<<<<< HEAD
-=======
-
-      {/* Sidebar */}
-      <InstructorSidebar />
->>>>>>> dcd67e4 (Updated stylings)
-=======
->>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
 
       {/* Main Content */}
       <main className="flex-1 p-6 sm:p-10">
@@ -74,33 +45,17 @@ const InstructorDashboard = () => {
             Instructor Dashboard 👩‍🏫
           </h1>
           <div className="flex items-center space-x-4">
-           <Link to="/instructor/addcourse">
-                       <motion.button
-  whileHover={{ scale: 1.02 }}
-  whileTap={{ scale: 0.98 }}
-  className="bg-blue-600 text-white px-5 py-2 rounded-lg font-medium transition-all duration-200 shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300"
->
-  + New Course
-</motion.button>
+            <Link to="/instructor/addcourse">
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="bg-blue-600 text-white px-5 py-2 rounded-lg font-medium transition-all duration-200 shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300"
+              >
+                + New Course
+              </motion.button>
+            </Link>
 
-                     </Link>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
-            <motion.button
-              onClick={handleLogout}
-              className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-xl transition shadow"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Logout
-            </motion.button>
-<<<<<<< HEAD
-=======
->>>>>>> dcd67e4 (Updated stylings)
-=======
->>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
+            
           </div>
         </header>
 
@@ -166,12 +121,4 @@ const NavItem = ({ to, icon, label }) => (
   </Link>
 );
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 export default InstructorDashboard;
-=======
-export default InstructorDashboard;
->>>>>>> dcd67e4 (Updated stylings)
-=======
-export default InstructorDashboard;
->>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe

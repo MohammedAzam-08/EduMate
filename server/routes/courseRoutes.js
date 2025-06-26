@@ -31,14 +31,10 @@ router.get("/instructor/:instructorId", getCoursesByInstructor);
 // @route   GET /api/courses/:id
 router.get("/:id", getCourseById);
 
-// @desc    Create a new course
-// @route   POST /api/courses
-<<<<<<< HEAD
-<<<<<<< HEAD
-router.post("/", upload.single("image"), createCourse); // Optionally add: protect, isInstructor
-=======
 import multer from "multer";
 
+// @desc    Create a new course
+// @route   POST /api/courses
 const multerErrorHandler = (err, req, res, next) => {
   if (err instanceof multer.MulterError || err.message === "Unsupported file type") {
     return res.status(400).json({ message: err.message });
@@ -47,11 +43,6 @@ const multerErrorHandler = (err, req, res, next) => {
 };
 
 router.post("/", upload.single("image"), multerErrorHandler, createCourse); // Optionally add: protect, isInstructor
->>>>>>> dcd67e4 (Updated stylings)
-=======
-router.post("/", upload.single("image"), createCourse); // Optionally add: protect, isInstructor
->>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
-
 // @desc    Update a course
 // @route   PUT /api/courses/:id
 router.put("/:id", updateCourse); // Optionally add: protect, isInstructor

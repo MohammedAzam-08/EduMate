@@ -14,7 +14,7 @@ export const getAllCourses = async (req, res) => {
 export const getPublishedCoursesForStudents = async (req, res) => {
   try {
     const search = req.query.search || "";
-    const regex = new RegExp(search, "i"); // case-insensitive regex
+    const regex = new RegExp(search, "i");
 
     const courses = await Course.find({
       published: true,
@@ -23,11 +23,11 @@ export const getPublishedCoursesForStudents = async (req, res) => {
 
     res.status(200).json(courses);
   } catch (error) {
-    res.status(500).json({ message: "Failed to fetch courses", error });
+    res.status(500).json({ message: "Failed to fetch courses", error: error.message });
   }
 };
 
-// ✅ Get courses by instructor (via Clerk Auth ID or internal ID)
+// ✅ Get courses by instructor
 export const getCoursesByInstructor = async (req, res) => {
   try {
     const instructorId = req.params.instructorId;
@@ -42,7 +42,7 @@ export const getCoursesByInstructor = async (req, res) => {
   }
 };
 
-// ✅ Get single course by ID (with materials populated)
+// ✅ Get course by ID (with materials populated)
 export const getCourseById = async (req, res) => {
   try {
     const courseId = req.params.id;
@@ -61,23 +61,18 @@ export const getCourseById = async (req, res) => {
   }
 };
 
-// controllers/courseController.js
-
-
 // ✅ Create a new course
 export const createCourse = async (req, res) => {
   try {
-<<<<<<< HEAD
-<<<<<<< HEAD
-     console.log("BODY:", req.body);
-=======
-    console.log("Received createCourse request");
     console.log("BODY:", req.body);
->>>>>>> dcd67e4 (Updated stylings)
-=======
-     console.log("BODY:", req.body);
->>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
     console.log("FILE:", req.file);
+
+    // Accept instructor from flat or nested fields
+    const instructor = req.body.instructor || {
+      id: req.body["instructor[id]"],
+      name: req.body["instructor[name]"]
+    };
+
     const {
       title,
       description,
@@ -87,24 +82,13 @@ export const createCourse = async (req, res) => {
       isPublished,
       payment,
       discount,
+      videoLink
     } = req.body;
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
-    // Parse instructor from nested form fields
-    const instructor = req.body.instructor || {};
 
     // Basic validation
     if (!title || !description || !instructor.id || !instructor.name || !payment) {
-<<<<<<< HEAD
-=======
-    // Parse instructor from flat form fields
-    const instructor = {
-      id: req.body["instructor[id]"],
-      name: req.body["instructor[name]"],
-    };
+      return res.status(400).json({ message: "Title, description, instructor id and name, and payment are required" });
+    }
 
     // Convert payment and discount to numbers
     const paymentNum = Number(payment);
@@ -113,33 +97,18 @@ export const createCourse = async (req, res) => {
       discountNum = 0;
     }
 
-    // Basic validation
-    if (!title || !description || !instructor.id || !instructor.name || !paymentNum) {
->>>>>>> dcd67e4 (Updated stylings)
-=======
->>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
-      return res.status(400).json({ message: "Title, description, instructor id and name, and payment are required" });
-    }
-
-    // Handle image file path if uploaded
+    // Handle image upload
     let image = "";
     if (req.file) {
       const baseURL = process.env.BASE_URL || `http://${req.headers.host}`;
       image = `${baseURL}/uploads/${req.file.filename}`;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-      console.log("Constructed image URL:", image);
->>>>>>> dcd67e4 (Updated stylings)
-=======
->>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
     }
 
-    // Parse tags if sent as JSON string
+    // Parse tags if it's a JSON string
     let parsedTags = [];
     if (tags) {
       try {
-        parsedTags = JSON.parse(tags);
+        parsedTags = typeof tags === "string" ? JSON.parse(tags) : tags;
       } catch {
         parsedTags = [];
       }
@@ -153,39 +122,14 @@ export const createCourse = async (req, res) => {
       materials,
       tags: parsedTags,
       isPublished: Boolean(isPublished),
-<<<<<<< HEAD
-<<<<<<< HEAD
-      payment,
-      discount,
-=======
       payment: paymentNum,
       discount: discountNum,
->>>>>>> dcd67e4 (Updated stylings)
-=======
-      payment,
-      discount,
->>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
       image,
-      videoLink: req.body.videoLink || "",
+      videoLink: videoLink || "",
     });
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     const savedCourse = await newCourse.save();
     res.status(201).json(savedCourse);
-=======
-    try {
-      const savedCourse = await newCourse.save();
-      res.status(201).json(savedCourse);
-    } catch (validationError) {
-      console.error("Validation error in createCourse:", validationError);
-      return res.status(400).json({ message: "Validation failed", errors: validationError.errors });
-    }
->>>>>>> dcd67e4 (Updated stylings)
-=======
-    const savedCourse = await newCourse.save();
-    res.status(201).json(savedCourse);
->>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
   } catch (error) {
     console.error("Error in createCourse:", error.stack);
     res.status(500).json({ message: "Failed to create course", error: error.message });

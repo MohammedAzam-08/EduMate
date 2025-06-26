@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> dcd67e4 (Updated stylings)
-=======
->>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
 import Course from "../models/courseModel.js";
 import Enrollment from "../models/enrollmentModel.js";
 import Material from "../models/materialModel.js";
@@ -25,24 +18,22 @@ export const getInstructorCourseAnalytics = async (req, res) => {
     // 3. Get total materials uploaded by instructor
     const materialCount = await Material.countDocuments({ uploadedBy: instructorName });
 
-    // 4. Placeholder for messages if you implement them
+    // 4. Placeholder for total messages (if implemented)
     const messageCount = 0;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    // 5. Enrollments & Materials Overview per course
+    // 5. Enrollments per course
     const enrollmentsPerCourse = await Enrollment.aggregate([
       { $match: { course: { $in: courseIds } } },
       { $group: { _id: "$course", count: { $sum: 1 } } }
     ]);
 
+    // 6. Materials per course
     const materialsPerCourse = await Material.aggregate([
       { $match: { course: { $in: courseIds } } },
       { $group: { _id: "$course", count: { $sum: 1 } } }
     ]);
 
-    // Map courseId to enrollments and materials count
+    // Mapping counts for quick lookup
     const enrollmentsMap = {};
     enrollmentsPerCourse.forEach(e => {
       enrollmentsMap[e._id.toString()] = e.count;
@@ -53,15 +44,14 @@ export const getInstructorCourseAnalytics = async (req, res) => {
       materialsMap[m._id.toString()] = m.count;
     });
 
-    // Prepare data for chart
+    // 7. Prepare overview data
     const courseOverview = courses.map(course => ({
       name: course.title,
       students: enrollmentsMap[course._id.toString()] || 0,
       materials: materialsMap[course._id.toString()] || 0,
     }));
 
-    // 6. Weekly Activity - placeholder data (messages and views per day)
-    // This can be replaced with real data if available
+    // 8. Placeholder for weekly activity (replace with real data later)
     const weeklyActivity = [
       { day: "Mon", messages: 0, views: 0 },
       { day: "Tue", messages: 0, views: 0 },
@@ -70,24 +60,15 @@ export const getInstructorCourseAnalytics = async (req, res) => {
       { day: "Fri", messages: 0, views: 0 },
     ];
 
->>>>>>> dcd67e4 (Updated stylings)
-=======
->>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
     res.status(200).json({
       totalCourses: courses.length,
       totalEnrollments: enrollmentCount,
       totalMaterials: materialCount,
       totalMessages: messageCount,
-<<<<<<< HEAD
-<<<<<<< HEAD
-    });
-=======
       courseOverview,
-f    });
->>>>>>> dcd67e4 (Updated stylings)
-=======
+      weeklyActivity,
     });
->>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
+
   } catch (error) {
     res.status(500).json({ message: "Failed to fetch instructor analytics", error: error.message });
   }

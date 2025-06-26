@@ -1,16 +1,11 @@
+
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 import InstructorSidebar from "../../components/Instructor/InstructorSidebar";
->>>>>>> dcd67e4 (Updated stylings)
-=======
->>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
 
-function AddCourse() {
+function AddCourse({ instructorId = "valid_instructor_id", instructorName = "Valid Instructor" }) {
   const [form, setForm] = useState({
     title: "",
     description: "",
@@ -63,18 +58,8 @@ function AddCourse() {
       formData.append("payment", paymentValue);
       formData.append("discount", discountValue);
       formData.append("image", image);
-<<<<<<< HEAD
-<<<<<<< HEAD
-      formData.append("instructor[id]", "instructor_clerk_id"); // Replace with actual Clerk ID
-      formData.append("instructor[name]", "Instructor Name");   // Replace with actual name
-=======
-      formData.append("instructor[id]", "instructor_clerk_id");
-      formData.append("instructor[name]", "Instructor Name");
->>>>>>> dcd67e4 (Updated stylings)
-=======
-      formData.append("instructor[id]", "instructor_clerk_id"); // Replace with actual Clerk ID
-      formData.append("instructor[name]", "Instructor Name");   // Replace with actual name
->>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
+      formData.append("instructor[id]", instructorId); // Use actual instructor ID
+      formData.append("instructor[name]", instructorName);   // Use actual instructor name
 
       await axios.post("http://localhost:5000/api/courses", formData, {
         headers: {
@@ -92,125 +77,6 @@ function AddCourse() {
   };
 
   return (
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-500 px-4 py-8">
-      <motion.div
-        className="bg-white shadow-2xl rounded-3xl p-10 w-full max-w-4xl"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-      >
-        <motion.h1
-          className="text-4xl font-extrabold text-center text-gray-800 mb-8"
-          initial={{ y: -40 }}
-          animate={{ y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          Add New Course
-        </motion.h1>
-
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <input
-              type="text"
-              name="title"
-              value={form.title}
-              onChange={handleChange}
-              placeholder="Course Title"
-              required
-              className="p-4 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500"
-            />
-            <input
-              type="text"
-              name="duration"
-              value={form.duration}
-              onChange={handleChange}
-              placeholder="Duration (e.g. 4 weeks)"
-              required
-              className="p-4 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500"
-            />
-            <input
-              type="text"
-              name="videoLink"
-              value={form.videoLink}
-              onChange={handleChange}
-              placeholder="Video URL"
-              className="p-4 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500"
-            />
-            <input
-              type="text"
-              name="tags"
-              value={form.tags}
-              onChange={handleChange}
-              placeholder="Tags (comma separated)"
-              className="p-4 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500"
-            />
-            <input
-              type="number"
-              name="payment"
-              value={form.payment}
-              onChange={handleChange}
-              placeholder="Course Price (e.g. 5000)"
-              required
-              className="p-4 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500"
-            />
-            <input
-              type="number"
-              name="discount"
-              value={form.discount}
-              onChange={handleChange}
-              placeholder="Discount % (e.g. 50)"
-              required
-              className="p-4 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500"
-            />
-          </div>
-
-          <input
-            type="file"
-            accept="image/*"
-            onChange={(e) => setImage(e.target.files[0])}
-            className="p-4 border-2 border-gray-300 rounded-xl w-full"
-          />
-
-          <textarea
-            name="description"
-            value={form.description}
-            onChange={handleChange}
-            placeholder="Course Description"
-            rows={4}
-            required
-            className="w-full p-4 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500"
-          />
-
-          <div className="flex items-center space-x-3">
-            <input
-              type="checkbox"
-              name="isPublished"
-              checked={form.isPublished}
-              onChange={handleChange}
-              className="h-5 w-5 text-purple-600"
-            />
-            <label htmlFor="isPublished" className="text-gray-800 font-medium">
-              Publish Immediately
-            </label>
-          </div>
-
-          <motion.button
-            type="submit"
-            disabled={loading}
-            className="w-full bg-purple-600 hover:bg-purple-700 text-white py-4 text-lg rounded-xl font-bold transition duration-300"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            {loading ? "Creating Course..." : "Create Course"}
-          </motion.button>
-        </form>
-      </motion.div>
-<<<<<<< HEAD
-=======
     <div className="flex min-h-screen bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300">
       <InstructorSidebar />
       <div className="flex-1 flex items-center justify-center p-6">
@@ -322,9 +188,6 @@ function AddCourse() {
           </form>
         </motion.div>
       </div>
->>>>>>> dcd67e4 (Updated stylings)
-=======
->>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
     </div>
   );
 }

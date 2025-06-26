@@ -2,78 +2,76 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { SendIcon, MessageCircleIcon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import StudentLayout from "../../components/Student/StudentLayout";
+import InstructorLayout from "../../components/Instructor/InstructorLayout";
 
-const StudentMessages = () => {
+const InstructorMessages = () => {
   const user = JSON.parse(localStorage.getItem("user") || "{}");
-  const studentEmail = user.email;
-  const studentId = user._id;
+  const instructorId = user._id; // ✅ Use ID instead of email
+  const instructorEmail = user.email;
 
-  const [enrolledInstructors, setEnrolledInstructors] = useState([]);
-  const [selectedInstructor, setSelectedInstructor] = useState(null);
+  const [enrolledStudents, setEnrolledStudents] = useState([]);
+  const [selectedStudent, setSelectedStudent] = useState(null);
   const [messages, setMessages] = useState([]);
   const [reply, setReply] = useState("");
 
-  // Fetch enrolled instructors
+  // Fetch enrolled students
   useEffect(() => {
-    if (!studentEmail) return;
+    if (!instructorEmail) return;
 
-    const fetchEnrolledInstructors = async () => {
+    const fetchEnrolledStudents = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/messages/enrolled-instructors/${studentEmail}`
+          `http://localhost:5000/api/messages/enrolled-students/${instructorEmail}`
         );
-        setEnrolledInstructors(res.data);
+        setEnrolledStudents(res.data);
         if (res.data.length > 0) {
-          setSelectedInstructor(res.data[0]);
+          setSelectedStudent(res.data[0]);
         }
       } catch (err) {
-        console.error("Failed to fetch enrolled instructors:", err);
+        console.error("Failed to fetch enrolled students:", err);
       }
     };
 
-    fetchEnrolledInstructors();
-  }, [studentEmail]);
+    fetchEnrolledStudents();
+  }, [instructorEmail]);
 
   // Fetch messages
   useEffect(() => {
-    if (!studentEmail) return;
+    if (!instructorId) return;
 
     const fetchMessages = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/messages/user/${studentEmail}`
+          `http://localhost:5000/api/messages/user/${instructorId}`
         );
-        const sortedMessages = res.data.sort(
+        const sorted = res.data.sort(
           (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
         );
-        setMessages(sortedMessages);
+        setMessages(sorted);
       } catch (err) {
         console.error("Failed to fetch messages:", err);
       }
     };
 
     fetchMessages();
-  }, [studentEmail]);
+  }, [instructorId]);
 
-  // Filter messages between student and selected instructor
+  // Filter messages between instructor and selected student
   const filteredMessages = messages.filter(
     (msg) =>
-      selectedInstructor &&
-      ((msg.senderName === studentEmail &&
-        msg.recipientName === selectedInstructor.email) ||
-        (msg.senderName === selectedInstructor.email &&
-          msg.recipientName === studentEmail))
+      selectedStudent &&
+      ((msg.senderName === instructorId && msg.recipientName === selectedStudent._id) ||
+        (msg.senderName === selectedStudent._id && msg.recipientName === instructorId))
   );
 
-  // Handle sending message
+  // Send message
   const handleSend = async () => {
-    if (!reply.trim() || !selectedInstructor) return;
+    if (!reply.trim() || !selectedStudent) return;
 
     const messagePayload = {
-      senderName: studentEmail,
-      senderRole: "student",
-      recipientName: selectedInstructor.email,
+      senderName: instructorId,
+      senderRole: "instructor",
+      recipientName: selectedStudent._id,
       messageText: reply,
     };
 
@@ -91,8 +89,8 @@ const StudentMessages = () => {
   };
 
   return (
-    <StudentLayout>
-      {/* Page Header */}
+    <InstructorLayout>
+      {/* Header */}
       <motion.div
         className="text-4xl font-extrabold text-gray-800 mb-10 flex items-center gap-3"
         initial={{ opacity: 0, y: -40 }}
@@ -103,7 +101,7 @@ const StudentMessages = () => {
         Messages
       </motion.div>
 
-      {/* Instructor Select Dropdown */}
+      {/* Student Select */}
       <motion.div
         className="max-w-2xl mx-auto mb-8"
         initial={{ opacity: 0, y: 20 }}
@@ -111,25 +109,25 @@ const StudentMessages = () => {
         transition={{ duration: 0.5 }}
       >
         <label
-          htmlFor="instructor-select"
+          htmlFor="student-select"
           className="block mb-2 font-semibold text-gray-700"
         >
-          Select Instructor to Chat With:
+          Select Student to Chat With:
         </label>
         <select
-          id="instructor-select"
-          value={selectedInstructor?.email || ""}
+          id="student-select"
+          value={selectedStudent?.email || ""}
           onChange={(e) => {
-            const instructor = enrolledInstructors.find(
-              (inst) => inst.email === e.target.value
+            const student = enrolledStudents.find(
+              (stu) => stu.email === e.target.value
             );
-            setSelectedInstructor(instructor);
+            setSelectedStudent(student);
           }}
           className="w-full p-3 rounded-lg border border-gray-300 shadow-sm focus:ring-2 focus:ring-indigo-500 transition"
         >
-          {enrolledInstructors.map((inst) => (
-            <option key={inst.email} value={inst.email}>
-              {inst.name || inst.email}
+          {enrolledStudents.map((stu) => (
+            <option key={stu._id} value={stu.email}>
+              {stu.name || stu.email}
             </option>
           ))}
         </select>
@@ -156,7 +154,7 @@ const StudentMessages = () => {
               <motion.div
                 key={idx}
                 className={`rounded-xl px-5 py-3 shadow-md border max-w-xs md:max-w-sm ${
-                  msg.senderName === studentEmail
+                  msg.senderName === instructorId
                     ? "bg-indigo-100 ml-auto text-right"
                     : "bg-white text-left"
                 }`}
@@ -201,8 +199,8 @@ const StudentMessages = () => {
           </button>
         </div>
       </motion.div>
-    </StudentLayout>
+    </InstructorLayout>
   );
 };
 
-export default StudentMessages;
+export default InstructorMessages;

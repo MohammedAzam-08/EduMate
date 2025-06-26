@@ -168,13 +168,13 @@ export default function LoginPage() {
                   <span>📧</span> {loading ? 'Logging in...' : 'Login'}
                 </button>
               </form>
-
+{/* 
               <div className="flex items-center my-6">
                 <hr className="flex-grow border-gray-300" />
                 <span className="mx-4 text-gray-500">OR</span>
                 <hr className="flex-grow border-gray-300" />
-              </div>
-
+              </div> */}
+{/* 
               <button
                 type="button"
                 className="w-full flex items-center justify-center gap-2 border border-gray-300 py-2 rounded-md hover:bg-gray-100 transition duration-200"
@@ -184,7 +184,7 @@ export default function LoginPage() {
               >
                 <img src="https://www.google.com/favicon.ico" alt="Google icon" className="w-5 h-5" />
                 <span className="text-gray-700 font-medium">Log in with Google</span>
-              </button>
+              </button> */}
 
               <div className="text-sm text-center mt-6 space-y-2">
                 <p className="text-gray-600">

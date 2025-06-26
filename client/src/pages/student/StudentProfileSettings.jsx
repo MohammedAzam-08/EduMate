@@ -1,38 +1,20 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
-import { LockIcon, MailIcon } from "lucide-react";
+import { LockIcon, MailIcon, UserIcon } from "lucide-react";
 import { motion } from "framer-motion";
-
-const StudentProfileSettings = () => {
-<<<<<<< HEAD
-=======
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
 import StudentLayout from "../../components/Student/StudentLayout";
 
 const StudentProfileSettings = () => {
   const navigate = useNavigate();
->>>>>>> dcd67e4 (Updated stylings)
-=======
->>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
+
   const [profile, setProfile] = useState({
     name: "",
     email: "",
     password: "",
-<<<<<<< HEAD
-<<<<<<< HEAD
-    preferences: { darkMode: false },
-=======
     preferences: { emailNotifications: false },
->>>>>>> dcd67e4 (Updated stylings)
-=======
-    preferences: { darkMode: false },
->>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
   });
+
   const [loading, setLoading] = useState(true);
   const [confirmPassword, setConfirmPassword] = useState("");
 
@@ -65,16 +47,6 @@ const StudentProfileSettings = () => {
       });
   };
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-  const handleBack = () => {
-    navigate(-1);
-  };
-
->>>>>>> dcd67e4 (Updated stylings)
-=======
->>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
   if (loading) {
     return (
       <div className="p-6 text-center text-gray-500 text-lg">Loading Profile Settings...</div>
@@ -82,86 +54,7 @@ const StudentProfileSettings = () => {
   }
 
   return (
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
-    <div className="min-h-screen bg-gradient-to-br from-slate-100 via-slate-200 to-slate-300 p-8">
-      <motion.h1
-        className="text-4xl font-bold text-gray-800 mb-10 text-center"
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-      >
-        Profile Settings
-      </motion.h1>
-
-      <div className="flex flex-col md:flex-row max-w-5xl mx-auto gap-10">
-
-        {/* Settings Main */}
-        <motion.main
-          className="flex-1 space-y-10"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-
-          {/* Email Section */}
-          <section className="bg-white border border-gray-200 rounded-2xl p-8 shadow-lg">
-            <h2 className="text-xl font-bold text-gray-700 flex items-center gap-3 mb-5">
-              <MailIcon className="w-6 h-6 text-indigo-500" />
-              Update Email
-            </h2>
-            <label className="block text-sm text-gray-600 mb-2">Your email address</label>
-            <input
-              type="email"
-              className="w-full border border-gray-300 rounded-xl px-4 py-3 text-base focus:ring-2 focus:ring-indigo-400 focus:outline-none transition"
-              value={profile.email}
-              onChange={(e) => setProfile({ ...profile, email: e.target.value })}
-            />
-          </section>
-
-          {/* Password Section */}
-          <section className="bg-white border border-gray-200 rounded-2xl p-8 shadow-lg">
-            <h2 className="text-xl font-bold text-gray-700 flex items-center gap-3 mb-5">
-              <LockIcon className="w-6 h-6 text-indigo-500" />
-              Change Password
-            </h2>
-            <div className="space-y-5">
-              <div>
-                <label className="block text-sm text-gray-600 mb-2">New password</label>
-                <input
-                  type="password"
-                  className="w-full border border-gray-300 rounded-xl px-4 py-3 text-base focus:ring-2 focus:ring-indigo-400 focus:outline-none transition"
-                  value={profile.password}
-                  onChange={(e) => setProfile({ ...profile, password: e.target.value })}
-                />
-              </div>
-              <div>
-                <label className="block text-sm text-gray-600 mb-2">Confirm new password</label>
-                <input
-                  type="password"
-                  className="w-full border border-gray-300 rounded-xl px-4 py-3 text-base focus:ring-2 focus:ring-indigo-400 focus:outline-none transition"
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                />
-              </div>
-              <button
-                onClick={handleUpdate}
-                className="w-full md:w-auto bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-6 rounded-xl transition"
-              >
-                Update Profile
-              </button>
-            </div>
-          </section>
-
-        </motion.main>
-      </div>
-    </div>
-<<<<<<< HEAD
-=======
     <StudentLayout>
-      
       <div className="bg-white mx-6 md:mx-auto max-w-4xl shadow-xl rounded-2xl p-8 mb-12">
         <motion.h1
           className="text-3xl font-extrabold text-center text-indigo-700 mb-10"
@@ -197,11 +90,6 @@ const StudentProfileSettings = () => {
         <section className="mb-10">
           <h2 className="text-xl font-semibold text-indigo-700 mb-3">Change Password</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            <input
-              type="password"
-              placeholder="Current Password"
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-indigo-400 focus:outline-none"
-            />
             <input
               type="password"
               placeholder="New Password"
@@ -252,9 +140,6 @@ const StudentProfileSettings = () => {
         </div>
       </div>
     </StudentLayout>
->>>>>>> dcd67e4 (Updated stylings)
-=======
->>>>>>> 70aafdc5eadd0685073bf38bd0671143f60e1abe
   );
 };
 
