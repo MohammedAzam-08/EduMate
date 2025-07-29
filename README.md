@@ -49,9 +49,6 @@ EduMate/
 ├── README.md
 └── .gitignore
 
-yaml
-Copy
-Edit
 
 ---
 
